@@ -1,12 +1,30 @@
-# React + Vite
+# 🎵 K i d i f y - Music Discovery App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based music player that connects to the Deezer API, allowing users to search, preview, and discover new tracks.
 
-Currently, two official plugins are available:
+[![Live Demo](https://img.shields.io/badge/demo-live-green?style=for-the-badge)](https://your-vercel-link.vercel.app)
+[![GitHub license](https://img.shields.io/github/license/your-username/k-i-d-i-f-y?style=for-the-badge)](LICENSE)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![App Screenshot](https://via.placeholder.com/800x500?text=K+i+d+i+f+y+Screenshot) <!-- Replace with actual screenshot -->
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🔍 Search any track/artist via Deezer API
+- 🎧 Play 30-second song previews
+- 📱 Responsive design (mobile/desktop)
+- 🎨 Tailwind CSS styling
+- ⚡ Fast Vite-powered React app
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React 18 + Vite
+- **Styling**: Tailwind CSS
+- **API**: Deezer REST API
+- **Audio**: HTML5 Audio
+- **Deployment**: Vercel
+
+## 🚀 Quick Start
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/your-username/k-i-d-i-f-y.git
