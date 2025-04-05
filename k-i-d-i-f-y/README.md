@@ -1,4 +1,3 @@
-=======
 # 🎵 K i d i f y - Music Discovery App
 
 A React-based music player that connects to the Deezer API, allowing users to search, preview, and discover new tracks.
@@ -29,4 +28,3 @@ A React-based music player that connects to the Deezer API, allowing users to se
 1. Clone the repo:
    ```bash
    git clone https://github.com/your-username/k-i-d-i-f-y.git
->>>>>>> 982fdec893deb51ccd3a2f36fa1a16b092a2f536
