@@ -1,3 +1,331 @@
+/* index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #e2e2e2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* App Container */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header Styles */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.app-logo {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.75rem;
+  transition: transform 0.3s ease;
+  filter: hue-rotate(180deg) brightness(1.2);
+}
+
+.app-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.025em;
+  position: relative;
+}
+
+.app-title::after {
+  content: '♪';
+  position: absolute;
+  right: -1.5rem;
+  top: -0.5rem;
+  color: #8b5cf6;
+  animation: pulse 1.5s infinite;
+}
+
+/* Search Bar Styles */
+.search-container {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  position: relative;
+}
+
+.search-form {
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  padding-right: 3rem;
+  border-radius: 9999px;
+  border: 1px solid #374151;
+  background-color: rgba(31, 41, 55, 0.7);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+  border-color: #8b5cf6;
+}
+
+.search-button {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.search-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: #9ca3af;
+  transition: fill 0.2s ease;
+}
+
+.search-button:hover .search-icon {
+  fill: #8b5cf6;
+  transform: scale(1.1);
+}
+
+/* Track Grid */
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #8b5cf6;
+  animation: spin 1s ease-in-out infinite;
+}
+
+/* Error Message */
+.error-message {
+  color: #f87171;
+  background-color: rgba(220, 38, 38, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  text-align: center;
+  margin: 1rem auto;
+  max-width: fit-content;
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  color: #9ca3af;
+  margin-top: 2rem;
+  grid-column: 1 / -1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+  }
+
+  .app-title {
+    font-size: 1.75rem;
+  }
+
+  .tracks-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+/* Search Bar Styles */
+.search-container {
+  position: relative;
+  z-index: 10;
+}
+
+.search-input {
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: #9CA3AF;
+  opacity: 0.7;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.3);
+}
+
+.search-button {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.search-button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Animation for search icon */
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.search-button:hover svg {
+  animation: pulse 1.5s infinite;
+}
+
+/* General page styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom right, #1c1c1c, #3b3b6d);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #ffffff;
+  text-align: center;
+  background: linear-gradient(to right, #4e9e9e, #b300b3);
+  -webkit-background-clip: text;
+  color: transparent;
+  cursor: pointer;
+}
+
+/* Grid Layout for Tracks */
+.track-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  justify-items: center;
+}
+
+/* Track Card Styling */
+.track-card {
+  background-color: #2c2c2c;
+  padding: 15px;
+  border-radius: 10px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.track-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+.track-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.track-card h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.track-card p {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Loader */
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #8c8c8c;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error Message Styling */
+.error-message {
+  color: red;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.search-query {
+  color: #ccc;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.album-info {
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
