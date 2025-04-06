@@ -65,6 +65,18 @@ const App = () => {
     },
     {
       id: 5,
+      title: 'HUMBLE.',
+      artist: { name: 'Kendrick Lamar' },
+      album: { 
+        title: 'DAMN.', 
+        cover: 'https://e-cdn-images.dzcdn.net/images/cover/5efbc8f857565a9e9f7b2a8a5f5a5e5f/500x500.jpg',
+        cover_medium: 'https://e-cdn-images.dzcdn.net/images/cover/5efbc8f857565a9e9f7b2a8a5f5a5e5f/500x500.jpg',
+        description: 'DAMN. is Kendrick Lamar\'s fourth studio album, featuring the hit single "HUMBLE." which won a Grammy for Best Rap Song.'
+      },
+      preview: 'https://cdns-preview-d.dzcdn.net/stream/c-deda7fa9313b3c2a0aec57b5d822b1d6-6.mp3',
+    },
+    {
+      id: 6,
       title: 'Fugees - Killing Me Softly',
       artist: { name: 'Lauryn Hill' },
       album: { 
@@ -76,7 +88,7 @@ const App = () => {
       preview: 'https://cdns-preview-5.dzcdn.net/stream/c-68dba2ba19547b8b606c3f3dbfd04f90-7.mp3',
     },
     {
-      id: 6,
+      id: 7,
       title: 'Big Poppa',
       artist: { name: 'The Notorious B.I.G.' },
       album: { 
@@ -88,7 +100,7 @@ const App = () => {
       preview: 'https://cdns-preview-6.dzcdn.net/stream/c-235c71f8e2345f3ff68087a52d3d67c9-7.mp3',
     },
     {
-      id: 7,
+      id: 8,
       title: 'Ready or Not',
       artist: { name: 'Fugees' },
       album: { 
@@ -100,7 +112,7 @@ const App = () => {
       preview: 'https://cdns-preview-7.dzcdn.net/stream/c-307a4e62f16007eaf6db44d429d5a370-8.mp3',
     },
     {
-      id: 8,
+      id: 9,
       title: 'No Tears Left to Cry',
       artist: { name: 'Ariana Grande' },
       album: { 
@@ -112,7 +124,7 @@ const App = () => {
       preview: 'https://cdns-preview-8.dzcdn.net/stream/c-72de5f8c40f9b1a3387c1738a50157b8-9.mp3',
     },
     {
-      id: 9,
+      id: 10,
       title: 'Thrift Shop',
       artist: { name: 'Macklemore & Ryan Lewis' },
       album: { 
@@ -158,30 +170,30 @@ const App = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800 p-4 md:p-6">
       <div className="flex items-center justify-center mb-6 md:mb-8 cursor-pointer" onClick={handleLogoClick}>
-        <div className="flex items-center bg-gradient-to-r from-blue-500/10 to-purple-600/10 p-3 rounded-full border border-gray-700/50 hover:shadow-lg transition-all duration-300">
-          <img 
-            src="https://img.icons8.com/fluency/96/000000/music.png"
-            alt="Kidify Logo"
-            className="w-10 h-10 mr-3 transition-transform duration-500 hover:rotate-12 filter hue-rotate-180 brightness-110"
-          />
-          <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 tracking-tight">
-            K-I-D-I-F-Y
-          </h1>
-        </div>
+        <img 
+          src="https://img.icons8.com/fluency/96/000000/music.png"
+          alt="Kidify Logo"
+          className="w-10 h-10 mr-3 transition-transform duration-500 hover:rotate-12 filter hue-rotate-180 brightness-110"
+        />
+        <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 tracking-tight">
+          K-I-D-I-F-Y
+        </h1>
       </div>
-
-      <SearchBar onSearch={handleSearch} />
-
+  
+      <div className="w-full max-w-2xl">
+        <SearchBar onSearch={handleSearch} />
+      </div>
+  
       {loading && (
         <div className="flex justify-center mt-8">
           <div className="loader"></div>
         </div>
       )}
-
+  
       {error && (
         <p className="error-message">{error}</p>
       )}
-
+  
       {album ? (
         <AlbumPage
           album={album}
@@ -199,21 +211,23 @@ const App = () => {
               <div
                 key={track.id}
                 className="track-card bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-purple-700 transition-all duration-300 cursor-pointer"
-                onClick={() => handleTrackSelect(track, track.album)} // Passing album details
+                onClick={() => handleTrackSelect(track, track.album)}
               >
-                <img
-                  src={track.album?.cover_medium || track.album?.cover}
-                  alt={track.album?.title}
-                  className="w-full h-48 object-cover rounded-lg mb-4"
-                />
-                <h3 className="text-lg text-white">{track.title}</h3>
-                <p className="text-sm text-gray-400">{track.artist?.name}</p>
+                <div className="relative pt-[100%] mb-4">
+                  <img
+                    src={track.album?.cover_medium || track.album?.cover}
+                    alt={track.album?.title}
+                    className="absolute top-0 left-0 w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+                <h3 className="text-lg text-white truncate">{track.title}</h3>
+                <p className="text-sm text-gray-400 truncate">{track.artist?.name}</p>
               </div>
             ))
           )}
         </div>
       )}
-
+  
       {selectedTrack && (
         <MusicPlayer
           track={selectedTrack}
