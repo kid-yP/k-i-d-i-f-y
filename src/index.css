@@ -508,3 +508,10 @@ h1 {
 .play-button {
   font-size: 1.8rem;
 }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%; /* Full width */
+  padding: 20px;
+}
